@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "My Application"
+include ':app'
+include ':authorization_impl'
+include ':authorization_api'
+include ':registration_impl'
+include ':registration_api'
+include ':core_network_api'
+include ':core_network_impl'
+include ':core_database_api'
+include ':core_database_impl'
+include ':core_impl'

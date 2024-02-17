@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/authorization_api" />
+            <option value="$PROJECT_DIR$/authorization_impl" />
+            <option value="$PROJECT_DIR$/core_database_api" />
+            <option value="$PROJECT_DIR$/core_database_impl" />
+            <option value="$PROJECT_DIR$/core_impl" />
+            <option value="$PROJECT_DIR$/core_network_api" />
+            <option value="$PROJECT_DIR$/core_network_impl" />
+            <option value="$PROJECT_DIR$/registration_api" />
+            <option value="$PROJECT_DIR$/registration_impl" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
