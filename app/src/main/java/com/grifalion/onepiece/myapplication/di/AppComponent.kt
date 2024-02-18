@@ -1,39 +1,37 @@
 package com.grifalion.onepiece.myapplication.di
 
-import com.grifalion.onepiece.core_impl.app.ApplicationProvider
-import com.grifalion.onepiece.core_impl.app.CoreDependenciesComponent
-import com.grifalion.onepiece.core_impl.app.CoreDependenciesProvider
-import com.grifalion.onepiece.myapplication.app.App
-import com.grifalion.onepiece.myapplication.presentation.MainActivity
-import com.grifalion.onepiece.myapplication.presentation.fragments.MainFragment
+import android.app.Application
+import android.content.Context
+import com.grifalion.onepiece.core.AndroidDependenciesProvider
+import com.grifalion.onepiece.core.DependenciesProvider
+import com.grifalion.onepiece.core_impl.AndroidDependenciesComponent
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
-        ScreenBindingModule::class
+        ApplicationModule::class,
+        NavigatorBinds::class
     ],
     dependencies = [
-        CoreDependenciesProvider::class
+        AndroidDependenciesProvider::class
     ]
 )
-interface AppComponent : ApplicationProvider {
+interface AppComponent : DependenciesProvider {
+
+    companion object {
+        fun init(context: Context): AppComponent {
+            val androidDependenciesProvider = AndroidDependenciesComponent.init(context)
+            return DaggerAppComponent.factory()
+                .create(androidDependenciesProvider)
+        }
+    }
 
     @Component.Factory
     interface AppComponentFactory {
-        fun create(coreDependenciesProvider: CoreDependenciesProvider): AppComponent
+        fun create(androidDependenciesProvider: AndroidDependenciesProvider): AppComponent
     }
 
-    fun inject(mainFragment: MainFragment)
-
-    companion object {
-        fun init(app: App): ApplicationProvider {
-            val androidDependenciesProvider = CoreDependenciesComponent.create(app)
-            return DaggerAppComponent.factory()
-                .create(
-                    coreDependenciesProvider = androidDependenciesProvider
-                )
-        }
-    }
+    fun inject(app: Application)
 }

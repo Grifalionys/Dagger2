@@ -51,6 +51,11 @@ dependencies {
 
     //Modules
     implementation project(':authorization_api')
-    implementation project(':authorization_impl')
+    implementation project(':authorization')
+    implementation project(':start_page')
+    implementation project(':start_page_api')
     implementation project(':core_impl')
+    implementation project(':core')
+    implementation project(':core_ui')
+
 }
